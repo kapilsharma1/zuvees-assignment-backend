@@ -1,9 +1,10 @@
+require('dotenv').config();
 const axios = require('axios');
 
 const verifyImages = async () => {
   try {
     console.log('Fetching products from the API...');
-    const response = await axios.get('http://localhost:5000/api/products');
+    const response = await axios.get(`${process.env.API_URL || 'http://localhost:5000/api'}/products`);
     const products = response.data;
     
     console.log(`Received ${products.length} products from the API`);
