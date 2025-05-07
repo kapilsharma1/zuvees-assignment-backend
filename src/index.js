@@ -20,8 +20,9 @@ const corsOptions = {
   origin: [
     'http://localhost:3000',
     'http://localhost:5173',
+    'https://zuvees-assignment-frontend.netlify.app',
     process.env.FRONTEND_URL
-  ].filter(Boolean),
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
