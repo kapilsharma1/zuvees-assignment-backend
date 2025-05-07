@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Xbox Image Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product {
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #0066cc;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border: 1px solid #eee;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Xbox Image URL Testing</h1>
+    
+    <div class="product">
+        <h2>Xbox Series X</h2>
+        <p>Testing the following image URLs:</p>
+        
+        <div>
+            <p>Image 1: <span id="xsx-img1-status">Loading...</span></p>
+            <img id="xsx-img1" src="https://m.media-amazon.com/images/I/61-jjE67eQL._AC_SL1500_.jpg" alt="Xbox Series X Image 1" 
+                onload="document.getElementById('xsx-img1-status').innerHTML='<span class=\'success\'>SUCCESS!</span>'" 
+                onerror="document.getElementById('xsx-img1-status').innerHTML='<span class=\'error\'>FAILED!</span>'">
+        </div>
+        
+        <div>
+            <p>Image 2: <span id="xsx-img2-status">Loading...</span></p>
+            <img id="xsx-img2" src="https://m.media-amazon.com/images/I/71NBQ2a52CL._SL1500_.jpg" alt="Xbox Series X Image 2" 
+                onload="document.getElementById('xsx-img2-status').innerHTML='<span class=\'success\'>SUCCESS!</span>'" 
+                onerror="document.getElementById('xsx-img2-status').innerHTML='<span class=\'error\'>FAILED!</span>'">
+        </div>
+    </div>
+    
+    <div class="product">
+        <h2>Xbox Series S</h2>
+        <p>Testing the following image URLs:</p>
+        
+        <div>
+            <p>Image 1: <span id="xss-img1-status">Loading...</span></p>
+            <img id="xss-img1" src="https://m.media-amazon.com/images/I/71NBq2ft9lL._SL1500_.jpg" alt="Xbox Series S Image 1" 
+                onload="document.getElementById('xss-img1-status').innerHTML='<span class=\'success\'>SUCCESS!</span>'" 
+                onerror="document.getElementById('xss-img1-status').innerHTML='<span class=\'error\'>FAILED!</span>'">
+        </div>
+        
+        <div>
+            <p>Image 2: <span id="xss-img2-status">Loading...</span></p>
+            <img id="xss-img2" src="https://m.media-amazon.com/images/I/61vE7AtrHcL._SL1500_.jpg" alt="Xbox Series S Image 2" 
+                onload="document.getElementById('xss-img2-status').innerHTML='<span class=\'success\'>SUCCESS!</span>'" 
+                onerror="document.getElementById('xss-img2-status').innerHTML='<span class=\'error\'>FAILED!</span>'">
+        </div>
+    </div>
+    
+    <script>
+        // Add a timestamp to force a fresh load of the images
+        const timestamp = new Date().getTime();
+        document.querySelectorAll('img').forEach(img => {
+            img.src = img.src + '?t=' + timestamp;
+        });
+    </script>
+</body>
+</html> 
